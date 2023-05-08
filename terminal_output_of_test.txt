@@ -1,0 +1,100 @@
+jaime@Jaimes-MacBook-Pro HomeworkA  % behave ebay_login.feature
+Feature: User Login on eBay # ebay_login.feature:1
+
+  Scenario: There has been a successful login         # ebay_login.feature:3
+    Given I am on the eBay homepage                   # steps/ebayLogin.py:6 2.598s
+    When I click on the "Sign In" button              # steps/ebayLogin.py:19 0.001s
+      Traceback (most recent call last):
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/model.py", line 1329, in run
+          match.run(runner.context)
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+        File "steps/ebayLogin.py", line 21, in step_impl
+          sign_in_link = context.browser.find_element_by_id('gh-ug')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      AttributeError: 'WebDriver' object has no attribute 'find_element_by_id'
+      
+      Captured logging:
+      INFO:selenium.webdriver.common.selenium_manager:Executing: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json
+
+    And I enter valid login credentials               # None
+    And I click on the "Login" button                 # None
+    Then I should be redirected to the "My eBay" page # None
+    And I should see my username displayed            # None
+
+  Scenario: There has been an invalid login  # ebay_login.feature:11
+    Given I am on the eBay homepage          # steps/ebayLogin.py:6 4.383s
+    When I click on the "Sign In" button     # steps/ebayLogin.py:19 0.000s
+      Traceback (most recent call last):
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/model.py", line 1329, in run
+          match.run(runner.context)
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+        File "steps/ebayLogin.py", line 21, in step_impl
+          sign_in_link = context.browser.find_element_by_id('gh-ug')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      AttributeError: 'WebDriver' object has no attribute 'find_element_by_id'
+      
+      Captured logging:
+      INFO:selenium.webdriver.common.selenium_manager:Executing: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --output json
+
+    And I enter invalid login credentials    # None
+    And I click on the "Login" button        # None
+    Then I should see an error message       # None
+    And I should still be on the login page  # None
+
+  Scenario Outline: Sign in/ login -- @1.1 Different user credentials  # ebay_login.feature:26
+    Given that we have gone to wwww.ebay.com                           # steps/ebayLogin.py:13 0.000s
+      Traceback (most recent call last):
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/model.py", line 1329, in run
+          match.run(runner.context)
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+        File "steps/ebayLogin.py", line 15, in step_impl
+          raise NotImplementedError(u'STEP: Given that we have gone to wwww.ebay.com')
+      NotImplementedError: STEP: Given that we have gone to wwww.ebay.com
+
+    When we click on on "<gh-menu>"                                    # None
+    Then we are directed to the login page "<signin-form>"             # None
+
+  Scenario Outline: Sign in/ login -- @1.2 Different user credentials  # ebay_login.feature:27
+    Given that we have gone to wwww.ebay.com                           # steps/ebayLogin.py:13 0.000s
+      Traceback (most recent call last):
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/model.py", line 1329, in run
+          match.run(runner.context)
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+        File "steps/ebayLogin.py", line 15, in step_impl
+          raise NotImplementedError(u'STEP: Given that we have gone to wwww.ebay.com')
+      NotImplementedError: STEP: Given that we have gone to wwww.ebay.com
+
+    When we click on on "<gh-menu>"                                    # None
+    Then we are directed to the login page "<signin-form>"             # None
+
+  Scenario Outline: Sign in/ login -- @1.3 Different user credentials  # ebay_login.feature:28
+    Given that we have gone to wwww.ebay.com                           # steps/ebayLogin.py:13 0.000s
+      Traceback (most recent call last):
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/model.py", line 1329, in run
+          match.run(runner.context)
+        File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/behave/matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+        File "steps/ebayLogin.py", line 15, in step_impl
+          raise NotImplementedError(u'STEP: Given that we have gone to wwww.ebay.com')
+      NotImplementedError: STEP: Given that we have gone to wwww.ebay.com
+
+    When we click on on "<gh-menu>"                                    # None
+    Then we are directed to the login page "<signin-form>"             # None
+
+
+Failing scenarios:
+  ebay_login.feature:3  There has been a successful login
+  ebay_login.feature:11  There has been an invalid login
+  ebay_login.feature:26  Sign in/ login -- @1.1 Different user credentials
+  ebay_login.feature:27  Sign in/ login -- @1.2 Different user credentials
+  ebay_login.feature:28  Sign in/ login -- @1.3 Different user credentials
+
+0 features passed, 1 failed, 0 skipped
+0 scenarios passed, 5 failed, 0 skipped
+2 steps passed, 5 failed, 14 skipped, 0 undefined
+Took 0m6.983s
+jaime@Jaimes-MacBook-Pro HomeworkA  % 
